@@ -1,0 +1,13 @@
+Level 1: Upload a .php file, open "localhost/vulnerabilities/file.php"
+
+Level 2: PHP file extension should be ".php3"
+
+Level 3: The extension ".php3" is filtered, but ".php5" is not filtered
+
+Level 4: Change the Content-type header to "image/gif"
+
+Level 5: The extension ".php5" is not filtered
+
+Level 6: Get a GIF file (as small as possible), edit it to append PHP code at the end, rename it with ".php" extension
+
+Level 7: Use HTML code in the file name

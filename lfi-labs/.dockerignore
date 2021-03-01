@@ -1,0 +1,8 @@
+Makefile
+README.md
+Dockerfile
+docker-compose.yml
+.git
+Vagrantfile
+.vagrant
+Vagrant.bootstrap.sh
