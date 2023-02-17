@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+  <button type="button" onclick="loadDoc()">Give me a joke</button>
+
+<h2>The joke:</h2>
+
+<div id="demo"></div>
+
+
+<script>
+function loadDoc() {
+  const ajax = new XMLHttpRequest();
+
+  ajax.open("GET", "https://icanhazdadjoke.com/");
+
+  // This function will be called when the server responds
+  ajax.onload = function() {
+
+    $joke = this.responseText;
+
+    // Finds the element with id="demo", modifies its contents
+    document.getElementById("demo").innerHTML = $joke;
+  }
+  
+  // The HTTP request will have the header "Accept: text/plain"
+  ajax.setRequestHeader('Accept', 'text/plain');
+
+  ajax.send();
+}
+</script>
+
+</body>
+</html>

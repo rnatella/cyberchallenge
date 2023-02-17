@@ -1,0 +1,1 @@
+Copyright &copy; <?php echo date("Y"); ?> CyberChallenge.IT
