@@ -16,6 +16,7 @@ function loadDoc() {
   ajax.open("GET", "https://icanhazdadjoke.com/");
 
   // This function will be called when the server responds
+  // the "this" keyword refers to the ajax object (will contain the response)
   ajax.onload = function() {
 
     $joke = this.responseText;
@@ -24,7 +25,7 @@ function loadDoc() {
     document.getElementById("demo").innerHTML = $joke;
   }
   
-  // The HTTP request will have the header "Accept: text/plain"
+  // The HTTP request will contain the header "Accept: text/plain"
   ajax.setRequestHeader('Accept', 'text/plain');
 
   ajax.send();
