@@ -43,10 +43,9 @@ print("Cipher Text: " + encrypt_text("hello world", 3))
 
 
 
-"""
+
 message = "udz wklv vlgh"
 
 for key in range(0,26):
   translated = decrypt_text(message, key)
   print('Hacking key is %s: %s' % (key, translated))
-"""

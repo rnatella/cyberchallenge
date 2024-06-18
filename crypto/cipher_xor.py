@@ -20,8 +20,7 @@ newplaintext = newplaintext_bytes.decode()
 
 print("decrypted cyphertext is '%s'" % newplaintext)
 
-"""
+
 key_recovered_bytes = xor(plaintext_bytes, ciphertext_bytes)
 
 print('Hacking key is %s' % key)
-"""
