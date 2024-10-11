@@ -1,0 +1,14 @@
+{
+    "name": "Frontend",
+    "version": "1.0.0",
+    "description": "frontend",
+    "main": "server.js",
+    "scripts": {
+      "start": "node server.js"
+    },
+    "dependencies": {
+      "express": "^4.16.1",
+      "axios": "^0.21.1",
+      "aes256": "^1.1.0"
+    }
+  }

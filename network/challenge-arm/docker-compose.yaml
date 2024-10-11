@@ -1,0 +1,86 @@
+version: "3"
+
+services:
+  node1:
+    build: 
+      context: ./ubuntu-ccit
+      dockerfile: Dockerfile
+    image: ubuntu-ccit
+    hostname: node1
+    volumes:
+      - ./src:/src
+    privileged: true
+    environment:
+     - ROOTPW=ccit
+    networks:
+     a00_ext:
+      ipv4_address: 192.168.123.123
+     a10_net1:
+
+  node2:
+    build: 
+      context: ./ubuntu-ccit
+      dockerfile: Dockerfile
+    image: ubuntu-ccit
+    hostname: node2
+    privileged: true
+    volumes:
+      - ./src:/src
+    environment:
+     - ROOTPW=ccit
+     - REMIP=1
+    networks:
+     a10_net1:
+     a20_net2:
+
+  node3:
+    build: 
+      context: ./ubuntu-ccit
+      dockerfile: Dockerfile
+    image: ubuntu-ccit
+    hostname: node3
+    volumes:
+      - ./src:/src
+    privileged: true
+    environment:
+     - ROOTPW=ccit
+     - REMIP=1
+    networks:
+     a20_net2:
+#     a30_net3:
+
+#  node4:
+#    build: 
+#      context: ./ubuntu-ccit
+#      dockerfile: Dockerfile
+#    image: ubuntu-ccit
+#    hostname: node4
+#    privileged: true
+#    environment:
+#     - ROOTPW=test123
+#     - REMIP=1
+#    networks:
+#     a30_net3:
+
+networks:
+  a00_ext:
+   driver: bridge
+   ipam:
+    driver: default
+    config:
+     - subnet: 192.168.123.0/24
+
+  a10_net1:
+   driver: macvlan
+   driver_opts:
+     parent: ccit-net.10
+
+  a20_net2:
+   driver: macvlan
+   driver_opts:
+     parent: ccit-net.20
+
+#  a30_net3:
+#   driver: macvlan
+#   driver_opts:
+#     parent: ccit-net.30
